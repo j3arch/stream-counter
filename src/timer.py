@@ -1,4 +1,10 @@
 import time
+import datetime as dt
+
+class Timer:
+    def __init__(self):
+        pass
+    # setup the timer class be able to operate it (add time from events)
 
 def countdown(t):
     while t:
