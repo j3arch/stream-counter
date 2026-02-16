@@ -18,17 +18,15 @@ class Timer:
     def format(self):
         return str(dt.timedelta(seconds=self.remaining_seconds))
 
-def countdown(t):
-    while t:
-        mins, secs = divmod(t, 60)
-        timer = '{:02d}:{:02d}'.format(mins, secs)
+def countdown(initial_seconds: int):
+    timer = Timer(initial_seconds)
+    while not timer.is_finished():
         with open("timer.txt", "w", encoding="utf-8") as f:
-            f.write(timer)
+            f.write(timer.format())
         time.sleep(1)
-        t -= 1
-
+        timer.tick()
     print("Stream ended!")
 
-t = input("Enter the time in seconds: ")
+timer = input("Enter the time in seconds: ")
 
-countdown(int(t))
+countdown(int(timer))
