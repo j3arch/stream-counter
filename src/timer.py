@@ -27,6 +27,6 @@ def countdown(initial_seconds: int):
         timer.tick()
     print("Stream ended!")
 
-timer = input("Enter the time in seconds: ")
+user_input = input("Enter the time in seconds: ")
 
-countdown(int(timer))
+countdown(int(user_input))
