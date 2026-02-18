@@ -1,0 +1,11 @@
+# Python-generated files
+__pycache__/
+__pycache__
+
+# Virtual environments
+.venv
+.env
+
+# Temporary
+requirements.txt
+timer.txt
