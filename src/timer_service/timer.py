@@ -18,7 +18,7 @@ class Timer:
     def format(self) -> str:
         return str(dt.timedelta(seconds=self.remaining_seconds))
 
-def countdown(initial_seconds: int):
+def countdown(initial_seconds: int) -> None:
     timer = Timer(initial_seconds)
     while not timer.is_finished():
         with open("timer.txt", "w", encoding="utf-8") as f:
@@ -26,7 +26,3 @@ def countdown(initial_seconds: int):
         time.sleep(1)
         timer.tick()
     print("Stream ended!")
-
-user_input = input("Enter the time in seconds: ")
-
-countdown(int(user_input))
