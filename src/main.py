@@ -1,7 +1,7 @@
-import os
-import asyncio
-from dotenv import load_dotenv
-from twitchio.ext import commands
+# import os
+# import asyncio
+# from dotenv import load_dotenv
+# from twitchio.ext import commands
 from timer_service import countdown
 
 def main() -> None:
