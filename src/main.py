@@ -1,13 +1,20 @@
 # import os
-# import asyncio
 # from dotenv import load_dotenv
 # from twitchio.ext import commands
-from timer_service import countdown
+import asyncio
+from timer_service import Timer, run_timer
 
-def main() -> None:
-    user_input = input("Enter the time in seconds: ")
+async def main() -> None:
+    initial_time = 600
+    shared_timer = Timer(initial_time)
+    print("Timer service starting...")
 
-    countdown(int(user_input))
+    await asyncio.gather(
+        run_timer(shared_timer),
+    )
 
 if __name__ == "__main__":
-    main()
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("\nStopping the timer...")
