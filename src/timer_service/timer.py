@@ -1,5 +1,5 @@
-import time
 import datetime as dt
+import asyncio
 
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
@@ -18,11 +18,12 @@ class Timer:
     def format(self) -> str:
         return str(dt.timedelta(seconds=self.remaining_seconds))
 
-def countdown(initial_seconds: int) -> None:
-    timer = Timer(initial_seconds)
+async def run_timer(timer: Timer) -> None:
     while not timer.is_finished():
         with open("timer.txt", "w", encoding="utf-8") as f:
             f.write(timer.format())
-        time.sleep(1)
+        
+        await asyncio.sleep(1)
         timer.tick()
+    
     print("Stream ended!")
