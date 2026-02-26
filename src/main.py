@@ -5,9 +5,9 @@ import asyncio
 from timer_service import Timer, run_timer
 
 async def main() -> None:
-    initial_time = 600
+    initial_time = 7200
     shared_timer = Timer(initial_time)
-    print("Timer service starting...")
+    print("Stream starting...")
 
     await asyncio.gather(
         run_timer(shared_timer),
