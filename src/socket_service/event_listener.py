@@ -1,5 +1,5 @@
 import socketio
-import config
+# import config
 from timer_service import Timer
 
 sio = socketio.AsyncClient()
