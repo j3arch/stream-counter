@@ -8,8 +8,9 @@ def setup_socker(timer: Timer) -> None:
     pass
 
 
-async def streamlabs_event_listener(timer: Timer) -> None:
-    setup_socker(timer)
+async def streamlabs_event_listener(timer: Timer) -> None: 
+    setup_socker(timer)  #connects to the websocket and waits for the events
+
     url = f"https://sockets.streamlabs.com?token={config.STREAMLABS_SOCKET_TOKEN}"
 
     await sio.connect(url)
