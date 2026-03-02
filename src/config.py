@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TWITCH_TOKEN = os.getenv("TWITCH_TOKEN")
+STREAMLABS_SOCKET_TOKEN = os.getenv("STREAMLABS_SOCKET_TOKEN")
+
 TWITCH_NAME = os.getenv("TWITCH_NAME")
 TWITCH_CHANNEL = os.getenv("TWITCH_CHANNEL")
 
