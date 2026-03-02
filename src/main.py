@@ -3,6 +3,7 @@
 # from twitchio.ext import commands
 import asyncio
 from timer_service import Timer, run_timer
+from socket_service.event_listener import streamlabs_event_listener
 
 async def main() -> None:
     initial_time = 7200
@@ -11,6 +12,7 @@ async def main() -> None:
 
     await asyncio.gather(
         run_timer(shared_timer),
+        streamlabs_event_listener(shared_timer)
     )
 
 if __name__ == "__main__":
