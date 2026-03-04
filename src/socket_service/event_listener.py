@@ -5,7 +5,9 @@ from timer_service import Timer
 sio = socketio.AsyncClient() # socket.io client
 
 def setup_socket(timer: Timer) -> None:
-    pass
+    @sio.on('connect')
+    async def on_connect() -> None:
+        print("Connected to Streamlabs API!")
 
 
 async def streamlabs_event_listener(timer: Timer) -> None: 
