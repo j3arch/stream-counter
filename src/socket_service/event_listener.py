@@ -9,6 +9,14 @@ def setup_socket(timer: Timer) -> None:
     async def on_connect() -> None:
         print("Connected to Streamlabs API!")
 
+    @sio.on('event')
+    async def on_event(data: dict) -> None:
+        event_type = data.get('type')
+        messages = data.get('message', [])
+
+    # setup the api calls to get the sub/bits/dono calls, calculate the amount of time that needs to be added + add it to the timer.
+    # optionally add a message of how much was added
+
 
 async def streamlabs_event_listener(timer: Timer) -> None: 
     setup_socket(timer)  #connects to the websocket and waits for the events
