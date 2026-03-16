@@ -24,6 +24,13 @@ def setup_socket(timer: Timer) -> None:
     # setup the api calls to get the sub/bits/dono calls, calculate the amount of time that needs to be added + add it to the timer.
     # optionally add a message of how much was added
 
+        if event_type == "donation":
+            for msg in messages:
+                donation = int(msg.get("amount", 0))
+                added = donation * config.SECONDS_PER_1_USD
+                timer.add_seconds(added)
+
+
 
 async def streamlabs_event_listener(timer: Timer) -> None: 
     setup_socket(timer)  #connects to the websocket and waits for the events
