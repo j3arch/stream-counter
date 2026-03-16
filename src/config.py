@@ -11,3 +11,5 @@ TWITCH_CHANNEL = os.getenv("TWITCH_CHANNEL")
 
 SECONDS_PER_SUB = int(os.getenv("SECONDS_PER_SUB", "60"))
 SECONDS_PER_100_BITS = int(os.getenv("SECOND_PER_100_BITS", "30"))
+
+SECONDS_PER_1_USD = int(os.getenv("SECONDS_PER_1_USD", "30"))
