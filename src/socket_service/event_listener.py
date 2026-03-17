@@ -19,7 +19,10 @@ def setup_socket(timer: Timer) -> None:
             timer.add_seconds(config.SECONDS_PER_SUB)
 
         if event_type == 'bits':
-            timer.add_seconds(config.SECONDS_PER_100_BITS) # placeholder, adjust price per bit
+            for msg in messages:
+                bits = int(msg.get('amount', 0))
+                added = (bits // 100) * config.SECONDS_PER_100_BITS
+                timer.add_seconds(added) # placeholder, adjust price per bit
 
     # setup the api calls to get the sub/bits/dono calls, calculate the amount of time that needs to be added + add it to the timer.
     # optionally add a message of how much was added
