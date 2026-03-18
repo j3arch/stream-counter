@@ -27,8 +27,8 @@ def setup_socket(timer: Timer) -> None:
 
         if event_type == "donation":
             for msg in messages:
-                donation = int(msg.get("amount", 0))
-                added = donation * config.SECONDS_PER_1_USD
+                donation = float(msg.get("amount", 0))
+                added = int(donation * config.SECONDS_PER_1_USD)
                 timer.add_seconds(added)
 
 
