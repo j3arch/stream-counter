@@ -12,7 +12,7 @@ async def main() -> None:
 
     await asyncio.gather(
         run_timer(shared_timer),
-        # streamlabs_event_listener(shared_timer) 
+        streamlabs_event_listener(shared_timer)
     )
 
 if __name__ == "__main__":
