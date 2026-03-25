@@ -15,7 +15,7 @@ def setup_socket(timer: Timer) -> None:
         messages = data.get('message', [])
 
 
-        if event_type == 'subscription' or event_type == 'resub':
+        if event_type in ("subscription", "resub", "subgift"):
             timer.add_seconds(config.SECONDS_PER_SUB)
 
         if event_type == 'bits':
