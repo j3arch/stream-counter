@@ -15,11 +15,11 @@ SECONDS_PER_SUB = int(os.getenv("SECONDS_PER_SUB", "60"))
 SECONDS_PER_100_BITS = int(os.getenv("SECOND_PER_100_BITS", "30"))
 SECONDS_PER_1_USD = int(os.getenv("SECONDS_PER_1_USD", "30"))
 
-# Custom sub values:
+# Bonus time for sub bundles
 
-SECONDS_PER_5_SUBS = int(os.getenv("SECONDS_PER_5_SUBS", "420"))
-SECONDS_PER_10_SUBS = int(os.getenv("SECONDS_PER_10_SUBS", "900"))
-SECONDS_PER_20_SUBS = int(os.getenv("SECONDS_PER_20_SUBS", "1800"))
+BONUS_SECONDS_PER_5_SUBS = int(os.getenv("SECONDS_PER_5_SUBS", "120"))
+BONUS_SECONDS_PER_10_SUBS = int(os.getenv("SECONDS_PER_10_SUBS", "300"))
+BONUS_SECONDS_PER_20_SUBS = int(os.getenv("SECONDS_PER_20_SUBS", "600"))
 
 # Custom donation values:
 
