@@ -21,8 +21,8 @@ BONUS_SECONDS_PER_5_SUBS = int(os.getenv("SECONDS_PER_5_SUBS", "120"))
 BONUS_SECONDS_PER_10_SUBS = int(os.getenv("SECONDS_PER_10_SUBS", "300"))
 BONUS_SECONDS_PER_20_SUBS = int(os.getenv("SECONDS_PER_20_SUBS", "600"))
 
-# Custom donation values:
+# Bonus time for donations
 
-SECONDS_PER_10_USD = int(os.getenv("SECONDS_PER_10_USD", "300"))
-SECONDS_PER_25_USD = int(os.getenv("SECONDS_PER_25_USD", "900"))
-SECONDS_PER_100_USD = int(os.getenv("SECONDS_PER_100_USD", "3600"))
+# BONUS_SECONDS_PER_10_USD = int(os.getenv("SECONDS_PER_10_USD", "-"))
+BONUS_SECONDS_PER_25_USD = int(os.getenv("SECONDS_PER_25_USD", "150"))
+BONUS_SECONDS_PER_100_USD = int(os.getenv("SECONDS_PER_100_USD", "600"))
