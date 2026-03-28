@@ -13,7 +13,7 @@ def setup_socket(timer: Timer) -> None:
     async def on_event(data: dict) -> None:
         event_type = data.get('type')
         messages = data.get('message', [])
-        
+
 
         if event_type == 'bits':
             for msg in messages:
@@ -28,7 +28,12 @@ def setup_socket(timer: Timer) -> None:
                 base_added = count * config.SECONDS_PER_SUB
                 timer.add_seconds(base_added)
 
-                # add sub bonuses
+                if count == 20:
+                    timer.add_seconds(config.BONUS_SECONDS_PER_20_SUBS)
+                elif count == 10:
+                    timer.add_seconds(config.BONUS_SECONDS_PER_10_SUBS)
+                elif count == 5:
+                    timer.add_seconds(config.BONUS_SECONDS_PER_5_SUBS)
 
 
         if event_type == "donation":
