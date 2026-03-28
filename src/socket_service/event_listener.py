@@ -15,7 +15,7 @@ def setup_socket(timer: Timer) -> None:
         messages = data.get('message', [])
 
 
-        if event_type in ("subscription", "resub", "subgift"):
+        if event_type in ("subscription", "resub", "subgift", "gifted"):
             for msg in messages:
                 count = int(msg.get("amount", 1))
                 base_added = count * config.SECONDS_PER_SUB
