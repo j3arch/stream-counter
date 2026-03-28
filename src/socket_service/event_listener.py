@@ -16,7 +16,12 @@ def setup_socket(timer: Timer) -> None:
 
 
         if event_type in ("subscription", "resub", "subgift"):
-            timer.add_seconds(config.SECONDS_PER_SUB)
+            for msg in messages:
+                count = int(msg.get("amount", 1))
+                base_added = count * config.SECONDS_PER_SUB
+                timer.add_seconds(base_added)
+
+                # add sub bonuses
 
         if event_type == 'bits':
             for msg in messages:
@@ -30,6 +35,8 @@ def setup_socket(timer: Timer) -> None:
                 donation = float(msg.get("amount", 0))
                 added = int(donation * config.SECONDS_PER_1_USD)
                 timer.add_seconds(added)
+
+                # add donation bonuses
 
 
 
