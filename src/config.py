@@ -23,6 +23,5 @@ BONUS_SECONDS_PER_20_SUBS = int(os.getenv("SECONDS_PER_20_SUBS", "600"))
 
 # Bonus time for donations
 
-# BONUS_SECONDS_PER_10_USD = int(os.getenv("SECONDS_PER_10_USD", "-"))
 BONUS_SECONDS_PER_25_USD = int(os.getenv("SECONDS_PER_25_USD", "150"))
 BONUS_SECONDS_PER_100_USD = int(os.getenv("SECONDS_PER_100_USD", "600"))
