@@ -52,10 +52,10 @@ def setup_socket(timer: Timer) -> None:
 
                 if donation >= 100:
                     timer.add_seconds(config.BONUS_SECONDS_PER_100_USD)
-                    print("Processed 100$ bonus! Added 600s")
+                    print("Processed 100.0$ bonus! Added 600s")
                 elif donation >= 25:
                     timer.add_seconds(config.BONUS_SECONDS_PER_25_USD)
-                    print("Processed 25$ bonus! Added 150s")
+                    print("Processed 25.0$ bonus! Added 150s")
                 
                 
 
