@@ -23,17 +23,20 @@ def setup_socket(timer: Timer) -> None:
 
 
         if event_type in ("subscription", "resub", "subgift", "gifted"):
+            total_subs_in_event = 0
             for msg in messages:
                 count = int(msg.get("amount", 1))
-                base_added = count * config.SECONDS_PER_SUB
-                timer.add_seconds(base_added)
+                total_subs_in_event += count
 
-                if count >= 20:
-                    timer.add_seconds(config.BONUS_SECONDS_PER_20_SUBS)
-                elif count >= 10:
-                    timer.add_seconds(config.BONUS_SECONDS_PER_10_SUBS)
-                elif count >= 5:
-                    timer.add_seconds(config.BONUS_SECONDS_PER_5_SUBS)
+            base_added = total_subs_in_event * config.SECONDS_PER_SUB
+            timer.add_seconds(base_added)
+
+            if count >= 20:
+                timer.add_seconds(config.BONUS_SECONDS_PER_20_SUBS)
+            elif count >= 10:
+                timer.add_seconds(config.BONUS_SECONDS_PER_10_SUBS)
+            elif count >= 5:
+                timer.add_seconds(config.BONUS_SECONDS_PER_5_SUBS)
 
 
         if event_type == "donation":
