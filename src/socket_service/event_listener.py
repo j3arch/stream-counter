@@ -20,6 +20,7 @@ def setup_socket(timer: Timer) -> None:
                 bits = int(msg.get('amount', 0))
                 added = (bits // 100) * config.SECONDS_PER_100_BITS
                 timer.add_seconds(added)
+                print(f"Processed {bits} bits. Added {added}s") # test
 
 
         if event_type in ("subscription", "resub", "subgift", "gifted"):
@@ -38,6 +39,8 @@ def setup_socket(timer: Timer) -> None:
             elif total_subs_in_event >= 5:
                 timer.add_seconds(config.BONUS_SECONDS_PER_5_SUBS)
 
+            print(f"Processed {total_subs_in_event}subs. Added {base_added}s") # test
+
 
         if event_type == "donation":
             for msg in messages:
@@ -49,6 +52,8 @@ def setup_socket(timer: Timer) -> None:
                     timer.add_seconds(config.BONUS_SECONDS_PER_100_USD)
                 elif donation >= 25:
                     timer.add_seconds(config.BONUS_SECONDS_PER_25_USD)
+                
+                print(f"Processed {donation}$. Added {added}s") # test
 
 
 
