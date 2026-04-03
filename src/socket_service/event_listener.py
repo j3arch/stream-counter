@@ -31,11 +31,11 @@ def setup_socket(timer: Timer) -> None:
             base_added = total_subs_in_event * config.SECONDS_PER_SUB
             timer.add_seconds(base_added)
 
-            if count >= 20:
+            if total_subs_in_event >= 20:
                 timer.add_seconds(config.BONUS_SECONDS_PER_20_SUBS)
-            elif count >= 10:
+            elif total_subs_in_event >= 10:
                 timer.add_seconds(config.BONUS_SECONDS_PER_10_SUBS)
-            elif count >= 5:
+            elif total_subs_in_event >= 5:
                 timer.add_seconds(config.BONUS_SECONDS_PER_5_SUBS)
 
 
