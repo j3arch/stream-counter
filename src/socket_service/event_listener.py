@@ -11,6 +11,10 @@ def setup_socket(timer: Timer) -> None:
 
     @sio.on('event')
     async def on_event(data: dict) -> None:
+        # This will show you exactly what Twitch/Streamlabs is calling the event
+        # print(f"DEBUG: Received event of type '{data.get('type')}'")
+        # print(f"DEBUG: Full data: {data}")
+
         event_type = data.get('type')
         messages = data.get('message', [])
 
