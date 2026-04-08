@@ -1,6 +1,3 @@
-# import os
-# from dotenv import load_dotenv
-# from twitchio.ext import commands
 import asyncio
 from timer_service import Timer, run_timer
 from socket_service import streamlabs_event_listener
