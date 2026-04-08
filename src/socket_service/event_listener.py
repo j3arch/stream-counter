@@ -27,7 +27,7 @@ def setup_socket(timer: Timer) -> None:
                 print(f"Processed {bits} bits. Added {added}s") # TEST
 
 
-        if event_type in ("subscription", "resub", "subgift", "gifted"):
+        if event_type in ("subscription", "resub", "subMysteryGift"):
             total_subs_in_event = 0
             for msg in messages:
                 count = int(msg.get("amount", 1))
