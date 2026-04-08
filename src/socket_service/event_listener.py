@@ -35,7 +35,7 @@ def setup_socket(timer: Timer) -> None:
 
             base_added = total_subs_in_event * config.SECONDS_PER_SUB
             timer.add_seconds(base_added)
-            print(f"Processed {total_subs_in_event}subs. Added {base_added}s") # TEST
+            print(f"Processed {total_subs_in_event} subs. Added {base_added}s") # TEST
 
             if total_subs_in_event >= 20:
                 timer.add_seconds(config.BONUS_SECONDS_PER_20_SUBS)
