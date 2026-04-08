@@ -24,7 +24,7 @@ def setup_socket(timer: Timer) -> None:
                 bits = int(msg.get('amount', 0))
                 added = (bits // 100) * config.SECONDS_PER_100_BITS
                 timer.add_seconds(added)
-                print(f"Processed {bits} bits. Added {added}s") # TEST
+                print(f"Processed {bits} bits. Added {added}s")
 
 
         if event_type in ("subscription", "resub", "subMysteryGift"):
@@ -35,7 +35,7 @@ def setup_socket(timer: Timer) -> None:
 
             base_added = total_subs_in_event * config.SECONDS_PER_SUB
             timer.add_seconds(base_added)
-            print(f"Processed {total_subs_in_event} subs. Added {base_added}s") # TEST
+            print(f"Processed {total_subs_in_event} subs. Added {base_added}s")
 
             if total_subs_in_event >= 20:
                 timer.add_seconds(config.BONUS_SECONDS_PER_20_SUBS)
@@ -55,7 +55,7 @@ def setup_socket(timer: Timer) -> None:
                 donation = float(msg.get("amount", 0))
                 added = int(donation * config.SECONDS_PER_1_USD)
                 timer.add_seconds(added)
-                print(f"Processed {donation}$. Added {added}s") # TEST
+                print(f"Processed {donation}$. Added {added}s")
 
                 if donation >= 100:
                     timer.add_seconds(config.BONUS_SECONDS_PER_100_USD)
