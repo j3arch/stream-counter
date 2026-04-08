@@ -39,10 +39,13 @@ def setup_socket(timer: Timer) -> None:
 
             if total_subs_in_event >= 20:
                 timer.add_seconds(config.BONUS_SECONDS_PER_20_SUBS)
+                print("Processed 20 subs! Added 600s bonus!")
             elif total_subs_in_event >= 10:
                 timer.add_seconds(config.BONUS_SECONDS_PER_10_SUBS)
+                print("Processed 10 subs! Added 300s bonus!")
             elif total_subs_in_event >= 5:
                 timer.add_seconds(config.BONUS_SECONDS_PER_5_SUBS)
+                print("Processed 5 subs! Added 120s bonus!")
 
             
 
