@@ -30,18 +30,14 @@ def setup_socket(timer: Timer) -> None:
         if event_type in ("subscription", "resub", "subMysteryGift"):
             total_subs_in_event = 0
             for msg in messages:
-                plan = msg.get("sub_plan", "1000")
-                multiplier = 1
-                if plan == "3000":
-                    multiplier = 6
-                elif plan == "2000":
-                    multiplier = 2
+                plan = msg.get("sub_plan", "1000") # Sub tier handler
+                multiplier = 6 if plan == "3000" else 2 if plan == "2000" else 1
     
 
                 count = int(msg.get("amount", 1))
                 total_subs_in_event += count
+                base_added = (total_subs_in_event * config.SECONDS_PER_SUB * multiplier)
 
-            base_added = (total_subs_in_event * config.SECONDS_PER_SUB * multiplier)
             timer.add_seconds(base_added)
             print(f"Processed {total_subs_in_event} subs. Added {base_added}s")
 
