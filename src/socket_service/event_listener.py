@@ -35,7 +35,7 @@ def setup_socket(timer: Timer) -> None:
                 if plan == "3000":
                     multiplier = 6
                 elif plan == "2000":
-                    multiplier == 2
+                    multiplier = 2
     
 
                 count = int(msg.get("amount", 1))
