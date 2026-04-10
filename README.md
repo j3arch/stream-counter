@@ -2,7 +2,6 @@
 
 to run the script:
 - source .venv/bin/activate
-- add your twitch stream token and streamlabs websocket token to the local .env
 
 - Stream counter v.1, made with Python
     - Python script that converts donations/subs/bits to the time, and adds it to the countdown timer. When the timer runs out, stream ends.
