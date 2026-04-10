@@ -47,7 +47,13 @@ def setup_socket(timer: Timer) -> None:
                 timer.add_seconds(config.BONUS_SECONDS_PER_5_SUBS)
                 print("Processed 5 subs! Added 120s bonus!")
 
-            
+        
+        if event_type == "Tier 2 sub":
+            pass
+
+        
+        if event_type == "Tier 3 sub":
+            pass
 
 
         if event_type == "donation":
