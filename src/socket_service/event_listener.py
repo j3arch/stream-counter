@@ -12,8 +12,8 @@ def setup_socket(timer: Timer) -> None:
     @sio.on('event')
     async def on_event(data: dict) -> None:
         # This will show you exactly what Twitch/Streamlabs is calling the event
-        # print(f"DEBUG: Received event of type '{data.get('type')}'")
-        # print(f"DEBUG: Full data: {data}")
+        print(f"DEBUG: Received event of type '{data.get('type')}'")
+        print(f"DEBUG: Full data: {data}")
 
         event_type = data.get('type')
         messages = data.get('message', [])
@@ -30,10 +30,18 @@ def setup_socket(timer: Timer) -> None:
         if event_type in ("subscription", "resub", "subMysteryGift"):
             total_subs_in_event = 0
             for msg in messages:
+                plan = msg.get("sub_plan", "1000")
+                multiplier = 1
+                if plan == "3000":
+                    multiplier = 6
+                elif plan == "2000":
+                    multiplier == 2
+    
+
                 count = int(msg.get("amount", 1))
                 total_subs_in_event += count
 
-            base_added = total_subs_in_event * config.SECONDS_PER_SUB
+            base_added = (total_subs_in_event * config.SECONDS_PER_SUB * multiplier)
             timer.add_seconds(base_added)
             print(f"Processed {total_subs_in_event} subs. Added {base_added}s")
 
