@@ -1,11 +1,15 @@
 import datetime as dt
 import asyncio
 # import json
+# import os
 
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
         # self.state_file = "timer_state.json"
         self.remaining_seconds = initial_seconds
+
+    # def _load_state(self, default: int) -> int:
+        # return 0
 
     def tick(self) -> None:
         if self.remaining_seconds > 0:
