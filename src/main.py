@@ -1,11 +1,15 @@
 import asyncio
 from timer_service import Timer, run_timer
 from socket_service import streamlabs_event_listener
+from shortcut_service import keyboard_shortcuts_listener
 
 async def main() -> None:
     initial_time = 7200
     shared_timer = Timer(initial_time)
+    loop = asyncio.get_running_loop()
     print("Stream starting...")
+
+    keyboard_shortcuts_listener(shared_timer, loop)
 
     await asyncio.gather(
         run_timer(shared_timer),
