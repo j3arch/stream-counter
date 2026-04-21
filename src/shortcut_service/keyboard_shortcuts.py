@@ -17,6 +17,6 @@ def keyboard_shortcuts_listener(timer: Timer, loop: asyncio.AbstractEventLoop) -
         except AttributeError:
             pass
 
-        listener = keyboard.Listener(on_press=on_press)
-        listener.start()
-        print("shortcuts active")
+    listener = keyboard.Listener(on_press=on_press)
+    listener.start()
+    print("shortcuts active")
