@@ -1,19 +1,22 @@
 import datetime as dt
 import asyncio
-import json
+# import json
 # import os
 
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
-        self.state_file = "timer_state.json"
+        # self.state_file = "timer_state.json"
         self.remaining_seconds = initial_seconds
 
+    # implement safe state
+    """
     def _load_state(self, default: int) -> int:
         return default
 
     def _save_state(self) -> None:
         with open(self.state_file, "w") as f:
             json.dump({"remaining_seconds": self.remaining_seconds}, f)
+    """ 
 
     def tick(self) -> None:
         if self.remaining_seconds > 0:
