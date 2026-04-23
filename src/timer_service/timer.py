@@ -26,7 +26,7 @@ class Timer:
         return self.remaining_seconds <= 0
 
     def add_seconds(self, amount: int) -> None:
-        self.remaining_seconds += amount
+        self.remaining_seconds = max(0, self.remaining_seconds + amount)
 
     def format(self) -> str:
         return str(dt.timedelta(seconds=self.remaining_seconds))
