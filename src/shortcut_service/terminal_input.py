@@ -6,8 +6,8 @@ async def terminal_controller(timer: Timer) -> None:
     print("Use: pause/resume, or a number like 60 / -30")
 
     while True:
-        raw_input = await asyncio.to_thread(input, "> ")
-        cmd = raw_input.strip().lower()
+        raw = await asyncio.to_thread(input, "> ")
+        cmd = raw.strip().lower()
 
         if cmd == "pause":
             timer.pause()
@@ -21,7 +21,7 @@ async def terminal_controller(timer: Timer) -> None:
 
 
         try:
-            amount = int(raw_input)
+            amount = int(raw)
         except ValueError:
             print("Invalid input. Use pause, resume, or a whole number.")
             continue
