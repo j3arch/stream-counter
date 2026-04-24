@@ -10,15 +10,21 @@ async def terminal_controller(timer: Timer) -> None:
         cmd = raw_input.strip().lower()
 
         if cmd == "pause":
-            timer.paused = True
-        elif cmd == "resume":
-            timer.paused = False
-        else:
-            try:
-                amount = int(raw_input)
-            except ValueError:
-                print("Invalid input. Use pause, resume, or a whole number.")
-                continue
+            timer.pause()
+            print("Timer paused")
+            continue
 
-            timer.add_seconds(amount)
-            print(f"Adjusted timer by {amount}s. Current: {timer.format()}")
+        if cmd == "resume":
+            timer.resume()
+            print("Timer resumed")
+            continue
+
+
+        try:
+            amount = int(raw_input)
+        except ValueError:
+            print("Invalid input. Use pause, resume, or a whole number.")
+            continue
+
+        timer.add_seconds(amount)
+        print(f"Adjusted timer by {amount}s. Current: {timer.format()}")
