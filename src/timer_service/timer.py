@@ -7,6 +7,13 @@ class Timer:
     def __init__(self, initial_seconds: int) -> None:
         # self.state_file = "timer_state.json"
         self.remaining_seconds = initial_seconds
+        self.paused = False
+
+    def pause(self) -> None:
+        self.paused = True
+    
+    def resume(self) -> None:
+        self.paused = False
 
     # implement safe state
     """
@@ -19,7 +26,7 @@ class Timer:
     """ 
 
     def tick(self) -> None:
-        if self.remaining_seconds > 0:
+        if self.remaining_seconds > 0 and not self.paused:
             self.remaining_seconds -= 1
 
     def is_finished(self) -> bool:
