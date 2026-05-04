@@ -9,6 +9,10 @@ class Timer:
         self.remaining_seconds = initial_seconds
         self.paused = False
 
+        # Milestone tracker (for subs)
+        self.sub_progress = 0
+        self.gifts_owed = 0
+
     def pause(self) -> None:
         self.paused = True
     
