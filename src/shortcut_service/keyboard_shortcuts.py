@@ -13,6 +13,10 @@ def keyboard_shortcuts_listener(timer: Timer, loop: asyncio.AbstractEventLoop) -
             if key == keyboard.Key.page_down:
                 loop.call_soon_threadsafe(timer.add_seconds, -60)
                 print("Manually removed 60s")
+
+            if key == keyboard.Key.pause:
+                loop.call_soon_threadsafe(timer.claim_gift)
+                print("Gift claimed.")
         
         except AttributeError:
             pass
