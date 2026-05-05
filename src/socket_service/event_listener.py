@@ -39,6 +39,7 @@ def setup_socket(timer: Timer) -> None:
                 base_added = (total_subs_in_event * config.SECONDS_PER_SUB * multiplier)
 
             timer.add_seconds(base_added)
+            timer.add_subs_to_milestone(count)
             print(f"Processed {total_subs_in_event} subs. Added {base_added}s")
 
             if total_subs_in_event >= 20:
