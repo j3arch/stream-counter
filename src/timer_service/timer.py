@@ -61,6 +61,9 @@ async def run_timer(timer: Timer) -> None:
     while not timer.is_finished():
         with open("timer.txt", "w", encoding="utf-8") as f:
             f.write(timer.format())
+
+        with open("milestones.txt", "w", encoding="utf-8") as f:
+            f.write(f"Gifts owed: {timer.gifts_owed}")
         
         await asyncio.sleep(1)
         timer.tick()
