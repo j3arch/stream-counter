@@ -21,6 +21,13 @@ class Timer:
             self.gifts_owed += 1
             print(f"Milestone reached! Gifts owed {self.gifts_owed}")
 
+    def claim_gift(self) -> None:
+        if self.gifts_owed > 0:
+            self.gifts_owed -= 1
+            print(f"Gift claimed! Remaining: {self.gifts_owed}")
+        else:
+            print("No gifts owed")
+
     def pause(self) -> None:
         self.paused = True
     
