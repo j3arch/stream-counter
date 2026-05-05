@@ -13,6 +13,9 @@ class Timer:
         self.sub_progress = 0
         self.gifts_owed = 0
 
+    def add_subs_to_milestone(self, amount: int) -> None:
+        self.sub_progress += amount
+
     def pause(self) -> None:
         self.paused = True
     
