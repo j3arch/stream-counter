@@ -3,7 +3,7 @@ from timer_service import Timer
 
 async def terminal_controller(timer: Timer) -> None:
     print("Terminal controls active.")
-    print("Use: pause/resume/milestone, or a number like 60 / -30")
+    print("Use: pause/resume/claim, or a number like 60 / -30")
 
     while True:
         raw = await asyncio.to_thread(input, "> ")
@@ -19,7 +19,7 @@ async def terminal_controller(timer: Timer) -> None:
             print("Timer resumed")
             continue
 
-        if cmd == "milestone":
+        if cmd == "claim":
             timer.claim_gift()
             print("Gift claimed")
             continue
