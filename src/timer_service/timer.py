@@ -36,9 +36,6 @@ class Timer:
 
     # implement safe state
     """
-    def load_state(self, default: int) -> int:
-        return default
-
     def save_state(self) -> None:
         state = {
         "remaining_seconds": self.remaining_seconds,
@@ -47,6 +44,9 @@ class Timer:
         }
         with open("timer_state.json", "w") as f:
             json.dump(state, f)
+
+    def load_state(self, default: int) -> int:
+        return default
     """ 
 
     def tick(self) -> None:
