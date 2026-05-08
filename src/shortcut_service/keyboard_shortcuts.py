@@ -14,7 +14,7 @@ def keyboard_shortcuts_listener(timer: Timer, loop: asyncio.AbstractEventLoop) -
                 loop.call_soon_threadsafe(timer.add_seconds, -60)
                 print("Manually removed 60s")
 
-            if key == keyboard.Key.pause:
+            if key == keyboard.Key.shift_r:
                 loop.call_soon_threadsafe(timer.claim_gift)
                 print("Gift claimed.")
         
