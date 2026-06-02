@@ -9,6 +9,7 @@ class Timer:
         self.remaining_seconds = initial_seconds
         self.paused = False
         self.cap_seconds = cap_seconds
+        self.has_hit_cap = False
 
         # Milestone tracker (for subs)
         self.sub_progress = 0
