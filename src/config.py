@@ -25,3 +25,7 @@ BONUS_SECONDS_PER_20_SUBS = int(os.getenv("SECONDS_PER_20_SUBS", "600"))
 
 BONUS_SECONDS_PER_25_USD = int(os.getenv("SECONDS_PER_25_USD", "150"))
 BONUS_SECONDS_PER_100_USD = int(os.getenv("SECONDS_PER_100_USD", "600"))
+
+# Timer cap
+
+TIMER_CAP_SECONDS = int(os.getenv("TIMER_CAP_SECONDS", "43200"))
