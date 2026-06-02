@@ -4,10 +4,11 @@ import asyncio
 # import os
 
 class Timer:
-    def __init__(self, initial_seconds: int) -> None:
+    def __init__(self, initial_seconds: int, cap_seconds: int) -> None:
         # self.state_file = "timer_state.json"
         self.remaining_seconds = initial_seconds
         self.paused = False
+        self.cap_seconds = cap_seconds
 
         # Milestone tracker (for subs)
         self.sub_progress = 0
