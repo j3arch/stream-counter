@@ -42,6 +42,7 @@ class Timer:
     def save_state(self) -> None:
         state = {
         "remaining_seconds": self.remaining_seconds,
+        "paused": self.paused,
         "sub_progress": self.sub_progress,
         "gifts_owed": self.gifts_owed
         }
@@ -61,7 +62,7 @@ class Timer:
 
     def add_seconds(self, amount: int) -> None:
         if self.has_hit_cap:
-            print("Cap has been reached, no more time can be added")
+            print("Cap has been reached, no more time can be added")   
             return
         
         new_total = max(0, self.remaining_seconds + amount)                 
