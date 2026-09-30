@@ -2,12 +2,12 @@ import tkinter as tk
 import os
 
 def timer_gui():
-    file_path = "./timer.txt"
+    file_path = "timer.txt"
 
     try:
         if os.path.exist(file_path):
             with open(file_path, "r") as file:
-                timer_text = file.read().strip()
+                timer_text = file.read()
 
         else:
             timer_text = "file not found"
