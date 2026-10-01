@@ -5,7 +5,7 @@ def timer_gui():
     file_path = "timer.txt"
 
     try:
-        if os.path.exist(file_path):
+        if os.path.exists(file_path):
             with open(file_path, "r") as file:
                 timer_text = file.read()
 
