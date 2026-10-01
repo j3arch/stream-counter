@@ -1,17 +1,16 @@
 import tkinter as tk
 import os
 
-def timer_gui():
+def timer_gui() -> None:
     file_path = "timer.txt"
 
     try:
         if os.path.exists(file_path):
-            with open(file_path, "r") as file:
-                timer_text = file.read()
-
+            with open(file_path, "r", encoding="utf-8") as file:
+                timer_text = file.read().strip()
         else:
             timer_text = "file not found"
-    except Exception as e:
+    except OSError:
         timer_text = "error reading file"
 
     if not timer_text:
@@ -33,7 +32,6 @@ time_label = tk.Label(
 )
 time_label.pack(expand=True)
 
+
 timer_gui()
-
-
 root.mainloop()
