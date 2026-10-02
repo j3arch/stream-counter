@@ -1,25 +1,20 @@
 import tkinter as tk
 import os
 
-file_path = "timer.txt"
-milestones = "milestone.txt"
-
-def read_text_file() -> str:
+def read_text_file(path, fallback) -> str:
     try:
-        if os.path.exists(file_path):
-            with open(file_path, "r", encoding="utf-8") as file:
-                timer_text = file.read().strip()
-        else:
-            timer_text = "file not found"
+        with open(path, "r", encoding="utf-8") as file:
+            return file.read().strip() or fallback
     except OSError:
-        timer_text = "error reading file"
-
-    if not timer_text:
-        timer_text = "0"
+        return fallback
 
 def timer_gui() -> None:
-    timer_text = read_text_file()
+    timer_text = read_text_file("timer.txt", "00:00:00")
+    milestones_text = read_text_file("milestones.txt", "0")
+
+
     time_label.config(text=timer_text)
+    milestones_label.config(text=f"{milestones_text}")
     root.after(1000, timer_gui)
 
 root = tk.Tk()
@@ -34,6 +29,16 @@ time_label = tk.Label(
     fg="#ecf0f1"
 )
 
+milestones_label = tk.Label(
+    root, 
+    text="Loading...", 
+    font=("Helvetica", 48, "bold"), 
+    bg="#2c3e50", 
+    fg="#ecf0f1"
+)
+
+time_label.pack(expand=True)
+milestones_label.pack(expand=True)
 
 timer_gui()
 root.mainloop()
