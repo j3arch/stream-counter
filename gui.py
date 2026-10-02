@@ -1,14 +1,10 @@
 import tkinter as tk
 import os
 
+file_path = "timer.txt"
+milestones = "milestone.txt"
 
 def read_text_file() -> str:
-    pass
-
-def timer_gui() -> None:
-    file_path = "timer.txt"
-    milestones = "milestone.txt"
-
     try:
         if os.path.exists(file_path):
             with open(file_path, "r", encoding="utf-8") as file:
@@ -21,6 +17,8 @@ def timer_gui() -> None:
     if not timer_text:
         timer_text = "0"
 
+def timer_gui() -> None:
+    timer_text = read_text_file()
     time_label.config(text=timer_text)
     root.after(1000, timer_gui)
 
