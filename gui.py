@@ -4,6 +4,7 @@ import os
 
 def timer_gui() -> None:
     file_path = "timer.txt"
+    milestones = "milestone.txt"
 
     try:
         if os.path.exists(file_path):
