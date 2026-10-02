@@ -2,6 +2,9 @@ import tkinter as tk
 import os
 
 
+def read_text_file() -> str:
+    pass
+
 def timer_gui() -> None:
     file_path = "timer.txt"
     milestones = "milestone.txt"
