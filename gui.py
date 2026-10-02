@@ -1,5 +1,6 @@
 import tkinter as tk
 import os
+from shortcut_service import terminal_controller
 
 def timer_gui() -> None:
     file_path = "timer.txt"
@@ -21,7 +22,7 @@ def timer_gui() -> None:
 
 root = tk.Tk()
 root.title("Strem counter")
-root.geometry("300x150")
+root.geometry("600x400")
 
 time_label = tk.Label(
     root, 
@@ -30,6 +31,9 @@ time_label = tk.Label(
     bg="#2c3e50", 
     fg="#ecf0f1"
 )
+
+terminal = terminal_controller()
+terminal.pack(expand=True, fill="both", padx=5, pady=5)
 time_label.pack(expand=True)
 
 
