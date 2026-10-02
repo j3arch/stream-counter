@@ -1,6 +1,6 @@
 import tkinter as tk
 import os
-from shortcut_service import terminal_controller
+
 
 def timer_gui() -> None:
     file_path = "timer.txt"
@@ -31,10 +31,6 @@ time_label = tk.Label(
     bg="#2c3e50", 
     fg="#ecf0f1"
 )
-
-terminal = terminal_controller()
-terminal.pack(expand=True, fill="both", padx=5, pady=5)
-time_label.pack(expand=True)
 
 
 timer_gui()
