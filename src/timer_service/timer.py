@@ -25,7 +25,7 @@ class Timer:
             self.gifts_owed += 1
             print(f"Milestone reached! Gifts owed {self.gifts_owed}")
 
-    def add_donations_to_milestone(self, amount: float): 
+    def add_donations_to_milestone(self, amount: float) -> None: 
         self.donation_progress += amount
 
         while self.donation_progress >= 50.0:
