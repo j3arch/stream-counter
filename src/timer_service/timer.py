@@ -15,6 +15,7 @@ class Timer:
         # Milestone tracker (for subs)
         self.sub_progress = 0
         self.gifts_owed = 0
+        self.donation_progress = 0
 
     def add_subs_to_milestone(self, amount: int) -> None:
         self.sub_progress += amount
@@ -24,8 +25,13 @@ class Timer:
             self.gifts_owed += 1
             print(f"Milestone reached! Gifts owed {self.gifts_owed}")
 
-    def add_donations_to_milestone(self): 
-        pass
+    def add_donations_to_milestone(self, amount: float): 
+        self.donation_progress += amount
+
+        while self.donation_progress >= 50.0:
+            self.donation_progress -= 50.0
+            self.gifts_owed += 1
+            print(f"Milestone reached! Gifts owed {self.gifts_owed}")
 
     def claim_gift(self) -> None:
         if self.gifts_owed > 0:
