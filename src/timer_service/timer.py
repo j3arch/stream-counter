@@ -9,7 +9,7 @@ class Timer:
         # self.state_file = "timer_state.json"
         self.remaining_seconds = initial_seconds
         self.paused = False
-        self.cap_seconds = config.TIMER_CAP_SECONDS                 # Add to the notes! Delete comments after!
+        self.cap_seconds = config.TIMER_CAP_SECONDS                 # Add to the notes!
         self.has_hit_cap = False
 
         # Milestone tracker (for subs)
@@ -23,6 +23,9 @@ class Timer:
             self.sub_progress -= 20
             self.gifts_owed += 1
             print(f"Milestone reached! Gifts owed {self.gifts_owed}")
+
+    def add_donations_to_milestone(self): 
+        pass
 
     def claim_gift(self) -> None:
         if self.gifts_owed > 0:
@@ -62,7 +65,7 @@ class Timer:
 
     def add_seconds(self, amount: int) -> None:
         if self.has_hit_cap:
-            print("Cap has been reached, no more time can be added")   # Add to the notes! Delete comments after!
+            print("Cap has been reached, no more time can be added")   # Add to the notes!
             return
         
         new_total = max(0, self.remaining_seconds + amount)                 
