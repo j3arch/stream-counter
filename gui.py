@@ -18,7 +18,7 @@ def timer_gui() -> None:
     root.after(1000, timer_gui)
 
 root = tk.Tk()
-root.title("Strem counter")
+root.title("Stream counter")
 root.geometry("600x400")
 
 time_label = tk.Label(
