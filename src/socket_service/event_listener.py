@@ -59,6 +59,7 @@ def setup_socket(timer: Timer) -> None:
                 donation = float(msg.get("amount", 0))
                 added = int(donation * config.SECONDS_PER_1_USD)
                 timer.add_seconds(added)
+                timer.add_donations_to_milestone(donation)
                 print(f"Processed {donation}$. Added {added}s")
 
                 if donation >= 100:
