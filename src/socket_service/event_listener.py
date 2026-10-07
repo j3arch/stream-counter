@@ -10,6 +10,8 @@ def setup_socket(timer: Timer) -> None:
         print("Connected to Streamlabs API!")
 
     @sio.on('event')
+
+
     async def on_event(data: dict) -> None:
         # This will show you exactly what Twitch/Streamlabs is calling the event
         # print(f"DEBUG: Received event of type '{data.get('type')}'")
@@ -50,7 +52,6 @@ def setup_socket(timer: Timer) -> None:
                 print("Processed 5 subs bonus! Added 120s")
                 
 
-
         if event_type == "donation":
             for msg in messages:
                 donation = float(msg.get("amount", 0))
@@ -67,8 +68,6 @@ def setup_socket(timer: Timer) -> None:
                     print("Processed 25.0$ bonus! Added 150s")
                 
                 
-
-
 
 async def streamlabs_event_listener(timer: Timer) -> None: 
     setup_socket(timer)  #connects to the websocket and waits for the events
