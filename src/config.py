@@ -1,10 +1,17 @@
 import os
+import json
+from pathlib import Path
 from dotenv import load_dotenv
+
+USERDATA_PATH = Path(__file__).parent.parent / "userdata.json"
+
+with USERDATA_PATH.open("r", encoding="utf-8") as file:
+    userdata = json.load(file)
 
 load_dotenv()
 
-TWITCH_TOKEN = os.getenv("TWITCH_TOKEN")
-STREAMLABS_SOCKET_TOKEN = os.getenv("STREAMLABS_SOCKET_TOKEN")
+TWITCH_TOKEN = userdata["TWITCH_TOKEN"]
+STREAMLABS_SOCKET_TOKEN = userdata["STREAMLABS_SOCKET_TOKEN"]
 
 TWITCH_NAME = os.getenv("TWITCH_NAME")
 TWITCH_CHANNEL = os.getenv("TWITCH_CHANNEL")
