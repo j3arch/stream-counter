@@ -5,3 +5,6 @@ __pycache__
 # Virtual environments
 .venv
 .env
+
+# User files
+userdata.json
