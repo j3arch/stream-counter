@@ -1,0 +1,4 @@
+{
+    "TWITCH_TOKEN": "Your twitch token",
+    "STREAMLABS_SOCKET_TOKEN": "Your streamlabs token"
+}
