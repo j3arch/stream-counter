@@ -13,26 +13,26 @@ load_dotenv()
 TWITCH_TOKEN = userdata["TWITCH_TOKEN"]
 STREAMLABS_SOCKET_TOKEN = userdata["STREAMLABS_SOCKET_TOKEN"]
 
-TWITCH_NAME = os.getenv("TWITCH_NAME")
-TWITCH_CHANNEL = os.getenv("TWITCH_CHANNEL")
+TWITCH_NAME = userdata["TWITCH_NAME"]
+TWITCH_CHANNEL = userdata["TWITCH_CHANNEL"]
 
 # Base values:
 
-SECONDS_PER_SUB = int(os.getenv("SECONDS_PER_SUB", "60"))
-SECONDS_PER_100_BITS = int(os.getenv("SECOND_PER_100_BITS", "30"))
-SECONDS_PER_1_USD = int(os.getenv("SECONDS_PER_1_USD", "30"))
+SECONDS_PER_SUB = int(userdata.get("SECONDS_PER_SUB", 60))
+SECONDS_PER_100_BITS = int(userdata.get("SECOND_PER_100_BITS", 30))
+SECONDS_PER_1_USD = int(userdata.get("SECONDS_PER_1_USD", "30"))
 
 # Bonus time for sub bundles
 
-BONUS_SECONDS_PER_5_SUBS = int(os.getenv("SECONDS_PER_5_SUBS", "120"))
-BONUS_SECONDS_PER_10_SUBS = int(os.getenv("SECONDS_PER_10_SUBS", "300"))
-BONUS_SECONDS_PER_20_SUBS = int(os.getenv("SECONDS_PER_20_SUBS", "600"))
+BONUS_SECONDS_PER_5_SUBS = int(userdata.get("SECONDS_PER_5_SUBS", 120))
+BONUS_SECONDS_PER_10_SUBS = int(userdata.get("SECONDS_PER_10_SUBS", 300))
+BONUS_SECONDS_PER_20_SUBS = int(userdata.get("SECONDS_PER_20_SUBS", 600))
 
 # Bonus time for donations
 
-BONUS_SECONDS_PER_25_USD = int(os.getenv("SECONDS_PER_25_USD", "150"))
-BONUS_SECONDS_PER_100_USD = int(os.getenv("SECONDS_PER_100_USD", "600"))
+BONUS_SECONDS_PER_25_USD = int(userdata.get("SECONDS_PER_25_USD", 150))
+BONUS_SECONDS_PER_100_USD = int(userdata.get("SECONDS_PER_100_USD", 600))
 
 # Timer cap
 
-TIMER_CAP_SECONDS = int(os.getenv("TIMER_CAP_SECONDS", "43200"))
+TIMER_CAP_SECONDS = int(userdata.get("TIMER_CAP_SECONDS", 43200))
