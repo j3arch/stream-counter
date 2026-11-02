@@ -3,6 +3,10 @@ import asyncio
 import config
 import json
 import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+STATE_FILE = BASE_DIR / "timer_state.json"
 
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
@@ -11,6 +15,8 @@ class Timer:
         self.paused = False
         self.cap_seconds = config.TIMER_CAP_SECONDS                 # Add to the notes!
         self.has_hit_cap = False
+        self.base_dir = Path(__file__).resolve().parent
+        self.state_file = self.base_dir / "timer_state.json"
 
         # Milestone tracker (for subs)
         self.sub_progress = 0
@@ -53,7 +59,8 @@ class Timer:
         "remaining_seconds": self.remaining_seconds,
         "paused": self.paused,
         "sub_progress": self.sub_progress,
-        "gifts_owed": self.gifts_owed
+        "gifts_owed": self.gifts_owed,
+        "has_hit_cap": self.has_hit_cap
         }
         with open("timer_state.json", "w", encoding="utf-8") as f:
             json.dump(state, f)
