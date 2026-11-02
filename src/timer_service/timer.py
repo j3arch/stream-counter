@@ -64,7 +64,7 @@ class Timer:
         "gifts_owed": self.gifts_owed,
         "has_hit_cap": self.has_hit_cap
         }
-        with open("timer_state.json", "w", encoding="utf-8") as f:
+        with open(self.state_file, "w", encoding="utf-8") as f:
             json.dump(state, f)
 
     def load_state(self) -> None:
