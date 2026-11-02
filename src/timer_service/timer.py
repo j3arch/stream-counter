@@ -2,7 +2,7 @@ import datetime as dt
 import asyncio
 import config
 import json
-# import os
+import os
 
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
@@ -58,8 +58,9 @@ class Timer:
         with open("timer_state.json", "w", encoding="utf-8") as f:
             json.dump(state, f)
 
-    def load_state(self, default: int) -> int:
-        return default
+    def load_state(self) -> None:
+        if not os.path.exists(self.state_file):
+            return
     
 
     def tick(self) -> None:
