@@ -7,6 +7,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 STATE_FILE = BASE_DIR / "timer_state.json"
+TIMER_FILE = BASE_DIR / "timer.txt"
+MILESTONE_FILE = BASE_DIR / "milestones.txt"
 
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
