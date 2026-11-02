@@ -1,6 +1,7 @@
 {
         "remaining_seconds": 0,
-        "paused": 0,
+        "paused": false,
         "sub_progress": 0,
-        "gifts_owed": 0
-    }
+        "gifts_owed": 0,
+        "has_hit_cap": false
+}
