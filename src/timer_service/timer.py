@@ -1,7 +1,7 @@
 import datetime as dt
 import asyncio
 import config
-# import json
+import json
 # import os
 
 class Timer:
@@ -46,8 +46,8 @@ class Timer:
     def resume(self) -> None:
         self.paused = False
 
-    # implement safe state
-    """
+    # implement save state
+    
     def save_state(self) -> None:
         state = {
         "remaining_seconds": self.remaining_seconds,
@@ -55,12 +55,12 @@ class Timer:
         "sub_progress": self.sub_progress,
         "gifts_owed": self.gifts_owed
         }
-        with open("timer_state.json", "w") as f:
+        with open("timer_state.json", "w", encoding="utf-8") as f:
             json.dump(state, f)
 
     def load_state(self, default: int) -> int:
         return default
-    """ 
+    
 
     def tick(self) -> None:
         if self.remaining_seconds > 0 and not self.paused:
