@@ -5,11 +5,6 @@ import json
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent
-STATE_FILE = BASE_DIR / "timer_state.json"
-TIMER_FILE = BASE_DIR / "timer.txt"
-MILESTONE_FILE = BASE_DIR / "milestones.txt"
-
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
         # self.state_file = "timer_state.json"
@@ -19,6 +14,8 @@ class Timer:
         self.has_hit_cap = False
         self.base_dir = Path(__file__).resolve().parent
         self.state_file = self.base_dir / "timer_state.json"
+        self.timer_file = self.base_dir / "timer.txt"
+        self.milestone_file = self.base_dir / "milestones.txt"
 
         # Milestone tracker (for subs)
         self.sub_progress = 0
