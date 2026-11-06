@@ -103,7 +103,14 @@ class Timer:
         return str(dt.timedelta(seconds=self.remaining_seconds))
 
     def reset_state(self) -> None:
-        return None
+        self.remaining_seconds = 0
+        self.paused = False
+        self.sub_progress = 0
+        self.donation_progress = 0
+        self.gifts_owed = 0
+        self.has_hit_cap = False
+        self.save_state()
+
 
 async def run_timer(timer: Timer) -> None:
     while not timer.is_finished():
