@@ -24,6 +24,11 @@ async def terminal_controller(timer: Timer) -> None:
             print("Gift claimed")
             continue
 
+        if cmd == "reset":
+            timer.reset_state()
+            print("Timer reset")
+            continue
+
 
         try:
             amount = int(raw)
