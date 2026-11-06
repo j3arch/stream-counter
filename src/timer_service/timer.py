@@ -122,5 +122,6 @@ async def run_timer(timer: Timer) -> None:
         
         await asyncio.sleep(1)
         timer.tick()
+        timer.save_state()
     
     print("Stream ended!")
