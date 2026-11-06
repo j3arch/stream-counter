@@ -70,6 +70,12 @@ class Timer:
         with open(self.state_file, "r", encoding="utf-8") as f:
             state = json.load(f)
 
+        self.remaining_seconds = state.get("remaining_seconds", self.remaining_seconds)
+        self.paused = state.get("paused", self.paused)
+        self.sub_progress = state.get("sub_progress", self.sub_progress)
+        self.gifts_owed = state.get("gifts_owed", self.gifts_owed)
+        self.has_hit_cap = state.get("has_hit_cap", self.has_hit_cap)
+
     def tick(self) -> None:
         if self.remaining_seconds > 0 and not self.paused:
             self.remaining_seconds -= 1
