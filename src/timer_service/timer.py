@@ -14,7 +14,6 @@ class Timer:
         self.has_hit_cap = False
         self.base_dir = Path(__file__).resolve().parent
         self.state_file = self.base_dir / "timer_state.json"
-        self.timer_file = self.base_dir / "timer.txt"
         self.milestone_file = self.base_dir / "milestones.txt"
 
         # Milestone tracker (for subs)
@@ -67,7 +66,9 @@ class Timer:
     def load_state(self) -> None:
         if not os.path.exists(self.state_file):
             return
-    
+
+        with open(self.state_file, "r", encoding="utf-8") as f:
+            state = json.load(f)
 
     def tick(self) -> None:
         if self.remaining_seconds > 0 and not self.paused:
