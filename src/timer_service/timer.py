@@ -7,7 +7,6 @@ from pathlib import Path
 
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
-        # self.state_file = "timer_state.json"
         self.remaining_seconds = initial_seconds
         self.paused = False
         self.cap_seconds = config.TIMER_CAP_SECONDS                 # Add to the notes!
@@ -16,7 +15,7 @@ class Timer:
         self.state_file = self.base_dir / "timer_state.json"
         self.milestone_file = self.base_dir / "milestones.txt"
 
-        # Milestone tracker (for subs)
+        # Milestone tracker (for subs/donations)
         self.sub_progress = 0
         self.gifts_owed = 0
         self.donation_progress = 0
