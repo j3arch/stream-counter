@@ -102,6 +102,9 @@ class Timer:
     def format(self) -> str:
         return str(dt.timedelta(seconds=self.remaining_seconds))
 
+    def reset_state(self) -> None:
+        return None
+
 async def run_timer(timer: Timer) -> None:
     while not timer.is_finished():
         with open("timer.txt", "w", encoding="utf-8") as f:
