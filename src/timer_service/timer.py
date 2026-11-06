@@ -53,11 +53,12 @@ class Timer:
     
     def save_state(self) -> None:
         state = {
-        "remaining_seconds": self.remaining_seconds,
-        "paused": self.paused,
-        "sub_progress": self.sub_progress,
-        "gifts_owed": self.gifts_owed,
-        "has_hit_cap": self.has_hit_cap
+            "remaining_seconds": self.remaining_seconds,
+            "paused": self.paused,
+            "sub_progress": self.sub_progress,
+            "donation_progress": self.donation_progress,
+            "gifts_owed": self.gifts_owed,
+            "has_hit_cap": self.has_hit_cap
         }
         with open(self.state_file, "w", encoding="utf-8") as f:
             json.dump(state, f)
@@ -72,6 +73,7 @@ class Timer:
         self.remaining_seconds = state.get("remaining_seconds", self.remaining_seconds)
         self.paused = state.get("paused", self.paused)
         self.sub_progress = state.get("sub_progress", self.sub_progress)
+        self.donation_progress = state.get("donation_progress", self.donation_progress)
         self.gifts_owed = state.get("gifts_owed", self.gifts_owed)
         self.has_hit_cap = state.get("has_hit_cap", self.has_hit_cap)
 
