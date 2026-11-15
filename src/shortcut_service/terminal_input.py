@@ -33,7 +33,7 @@ async def terminal_controller(timer: Timer) -> None:
         try:
             amount = int(raw)
         except ValueError:
-            print("Invalid input. Use pause, resume, or a whole number.")
+            print("Invalid input. Use pause, resume, reset, or a whole number.")
             continue
 
         timer.add_seconds(amount)
