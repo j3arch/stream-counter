@@ -11,7 +11,7 @@ class Timer:
         self.paused = False
         self.cap_seconds = config.TIMER_CAP_SECONDS                 # Add to the notes!
         self.has_hit_cap = False
-        self.base_dir = Path(__file__).resolve().parent
+        self.base_dir = Path(__file__).resolve().parent.parent.parent
         self.state_file = self.base_dir / "timer_state.json"
         self.milestone_file = self.base_dir / "milestones.txt"
 
