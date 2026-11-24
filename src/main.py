@@ -6,6 +6,7 @@ from shortcut_service import keyboard_shortcuts_listener, terminal_controller
 async def main() -> None:
     initial_time = 7200
     shared_timer = Timer(initial_time)
+    shared_timer.load_state()
     loop = asyncio.get_running_loop()
     print("Stream starting...")
 
