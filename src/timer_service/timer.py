@@ -104,7 +104,7 @@ class Timer:
 
     def reset_state(self) -> None:
         self.remaining_seconds = 7200
-        self.paused = False
+        self.paused = True
         self.sub_progress = 0
         self.donation_progress = 0
         self.gifts_owed = 0
