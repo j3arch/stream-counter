@@ -125,3 +125,4 @@ async def run_timer(timer: Timer) -> None:
         timer.save_state()
     
     print("Stream ended!")
+    timer.reset_state()
