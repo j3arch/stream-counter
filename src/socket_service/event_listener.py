@@ -65,6 +65,7 @@ def setup_socket(timer: Timer) -> None:
                 bits = int(msg.get('amount', 0))
                 added = (bits // 100) * config.SECONDS_PER_100_BITS
                 timer.add_seconds(added)
+                timer.add_bits_to_milestone(bits)
                 print(f"Processed {bits} bits. Added {added}s")
                 
                 
