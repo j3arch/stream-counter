@@ -40,6 +40,10 @@ class Timer:
     def add_bits_to_milestone(self, amount: int) -> None:
         self.bits_progress += amount
 
+        while self.bits_progress >= 5000:
+            self.bits_progress -= 5000
+            self.gifts_owed += 1
+            print(f"Milestone reached! Gifts owed {self.gifts_owed}")
 
     def claim_gift(self) -> None:
         if self.gifts_owed > 0:
