@@ -8,7 +8,7 @@ from pathlib import Path
 class Timer:
     def __init__(self, initial_seconds: int) -> None:
         self.remaining_seconds = initial_seconds
-        self.paused = False
+        self.paused = True
         self.cap_seconds = config.TIMER_CAP_SECONDS                 # Add to the notes!
         self.has_hit_cap = False
         self.base_dir = Path(__file__).resolve().parent.parent.parent
