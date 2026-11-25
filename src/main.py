@@ -7,6 +7,7 @@ async def main() -> None:
     initial_time = 7200
     shared_timer = Timer(initial_time)
     shared_timer.load_state()
+    shared_timer.pause()
     loop = asyncio.get_running_loop()
     print("Input 'start' to start the stream")
 
