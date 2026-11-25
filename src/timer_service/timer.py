@@ -16,8 +16,8 @@ class Timer:
         self.milestone_file = self.base_dir / "milestones.txt"
 
         # Milestone tracker (for subs/donations)
-        self.sub_progress = 0
         self.gifts_owed = 0
+        self.sub_progress = 0
         self.donation_progress = 0
         self.bits_progress = 0
 
@@ -62,6 +62,7 @@ class Timer:
             "paused": self.paused,
             "sub_progress": self.sub_progress,
             "donation_progress": self.donation_progress,
+            "bits_progress": self.bits_progress,
             "gifts_owed": self.gifts_owed,
             "has_hit_cap": self.has_hit_cap
         }
@@ -79,6 +80,7 @@ class Timer:
         self.paused = state.get("paused", self.paused)
         self.sub_progress = state.get("sub_progress", self.sub_progress)
         self.donation_progress = state.get("donation_progress", self.donation_progress)
+        self.bits_progress = state.get("bits_progress", self.bits_progress)
         self.gifts_owed = state.get("gifts_owed", self.gifts_owed)
         self.has_hit_cap = state.get("has_hit_cap", self.has_hit_cap)
 
@@ -112,6 +114,7 @@ class Timer:
         self.paused = True
         self.sub_progress = 0
         self.donation_progress = 0
+        self.bits_progress = 0
         self.gifts_owed = 0
         self.has_hit_cap = False
         self.save_state()
