@@ -125,4 +125,5 @@ async def run_timer(timer: Timer) -> None:
         timer.save_state()
     
     print("Stream ended!")
+    print(f"Remaining gifts: {timer.gifts_owed}")
     timer.reset_state()
