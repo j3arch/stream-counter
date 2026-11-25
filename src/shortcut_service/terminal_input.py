@@ -9,6 +9,11 @@ async def terminal_controller(timer: Timer) -> None:
         raw = await asyncio.to_thread(input, "> ")
         cmd = raw.strip().lower()
 
+        if cmd == "start":
+            timer.resume()
+            print("Starting the stream!")
+            continue
+
         if cmd == "pause":
             timer.pause()
             print("Timer paused")
@@ -33,7 +38,7 @@ async def terminal_controller(timer: Timer) -> None:
         try:
             amount = int(raw)
         except ValueError:
-            print("Invalid input. Use pause, resume, reset, or a whole number.")
+            print("Invalid input. Use start, pause, resume, reset, or a whole number.")
             continue
 
         timer.add_seconds(amount)

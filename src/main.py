@@ -8,7 +8,7 @@ async def main() -> None:
     shared_timer = Timer(initial_time)
     shared_timer.load_state()
     loop = asyncio.get_running_loop()
-    print("Stream starting...")
+    print("Input 'start' to start the stream ")
 
     keyboard_shortcuts_listener(shared_timer, loop)
 
