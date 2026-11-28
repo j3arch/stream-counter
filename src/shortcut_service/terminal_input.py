@@ -5,7 +5,7 @@ import signal
 
 async def terminal_controller(timer: Timer) -> None:
     print("Terminal controls active.")
-    print("Use: pause/resume/claim, or a number like 60 / -30")
+    print("Use: start/pause/resume/claim/exit, or a number like 60 / -30")
 
     while True:
         raw = await asyncio.to_thread(input, "> ")
@@ -45,7 +45,7 @@ async def terminal_controller(timer: Timer) -> None:
         try:
             amount = int(raw)
         except ValueError:
-            print("Invalid input. Use start, pause, resume, reset, or a whole number.")
+            print("Invalid input. Use start, pause, resume, reset, exit or a whole number.")
             continue
 
         timer.add_seconds(amount)
