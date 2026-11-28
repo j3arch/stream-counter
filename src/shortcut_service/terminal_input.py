@@ -1,5 +1,7 @@
 import asyncio
 from timer_service import Timer
+import os
+import signal
 
 async def terminal_controller(timer: Timer) -> None:
     print("Terminal controls active.")
@@ -33,6 +35,11 @@ async def terminal_controller(timer: Timer) -> None:
             timer.reset_state()
             print("Timer reset")
             continue
+
+        if cmd == "exit":
+            print("Stream ended")
+            os.kill(os.getpid(), signal.SIGINT)
+
 
 
         try:
